@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import { profile, thesis, projects, skills } from '../data/profile';
+
+// The hero shows the profile as an API response: the most "backend" thing about you.
+const response = {
+  name: profile.name,
+  role: profile.role,
+  education: `${profile.degree}, ${profile.university}`,
+  graduation: profile.graduation,
+  focus: ['Java', 'Backend', 'AI'],
+  location: profile.location,
+  open_to_work: true,
+  available_from: profile.availableFrom,
+};
+
+const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const json = escape(JSON.stringify(response, null, 2))
+  .replace(/("(?:[^"\\]|\\.)*")(\s*:)?/g, (_m, str, colon) =>
+    colon ? `<span class="k">${str}</span>${colon}` : `<span class="s">${str}</span>`)
+  .replace(/\b(true|false)\b/g, '<span class="b">$1</span>');
+---
+<Layout title={`${profile.name} – ${profile.role}`} description={profile.headline}>
+  <header class="top">
+    <a class="brand" href="#top">{profile.name}</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <h1>{profile.name}</h1>
+        <p class="lead">{profile.headline}</p>
+        <p class="links">
+          <a class="btn" href={`mailto:${profile.email}`}>Get in touch</a>
+          <a href={profile.github}>GitHub</a>
+          <a href={profile.linkedin}>LinkedIn</a>
+          {profile.cvUrl && <a href={profile.cvUrl}>Download CV</a>}
+        </p>
+      </div>
+      <figure class="response" aria-label="Profile as JSON">
+        <figcaption><span class="method">GET</span> /candidates/{profile.name.toLowerCase().replace(/\s+/g, '-')} <span class="status">200 OK</span></figcaption>
+        <pre><code set:html={json} /></pre>
+      </figure>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        {projects.map((p) => (
+          <li>
+            <h3>{p.title}</h3>
+            <div>
+              <p>{p.description}</p>
+              <p class="stack">{p.stack.join(', ')}</p>
+              <p class="links">
+                <a href={p.repo}>Source code</a>
+                {p.demo && <a href={p.demo}>Live demo</a>}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="thesis">
+      <h2>Bachelor’s thesis</h2>
+      <div class="thesis">
+        <h3>{thesis.title}</h3>
+        <p>{thesis.summary}</p>
+        <p class="stack">{thesis.topics.join(', ')}</p>
+        <p class="meta">{thesis.status}</p>
+        {thesis.link && <p class="links"><a href={thesis.link}>Read more</a></p>}
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        {skills.map((s) => (
+          <>
+            <dt>{s.group}</dt>
+            <dd>{s.items.join(', ')}</dd>
+          </>
+        ))}
+      </dl>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <h2>Contact</h2>
+    <p>I’m looking for a backend or software engineering role starting {profile.availableFrom}.</p>
+    <p class="links">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <a href={profile.github}>GitHub</a>
+      <a href={profile.linkedin}>LinkedIn</a>
+    </p>
+  </footer>
+</Layout>
