@@ -27,19 +27,19 @@ export const thesis = {
 
 export const projects = [
   {
-    title: 'Caption The Moment', // TODO
-    description:
-      'A real-time, multiplayer party game where friends compete to write the funniest caption for a photo.', // TODO
-    stack: ['Streamlit (Python)', 'Supabase (PostgreSQL)'],
-    repo: 'https://github.com/Supermegamine/CaptionTheMoment',
-    demo: 'https://supermegamine.github.io/CaptionTheMoment/',
-  },
-  {
     title: 'Planify', // TODO
     description: 'A full-stack productivity app that combines intelligent task management, daily habit tracking, and calendar scheduling into one dashboard.',
     stack: ['Next.js', 'SQLite', 'TailwindCSS'],
     repo: 'https://github.com/Supermegamine/Planify',
     demo: 'https://supermegamine.github.io/Planify/',
+  },
+  {
+    title: 'Caption The Moment', // TODO
+    description:
+      'A real-time, multiplayer party game where friends compete to write the funniest caption for a photo. The demo takes about 1 minute to load.', // TODO
+    stack: ['Streamlit (Python)', 'Supabase (PostgreSQL)'],
+    repo: 'https://github.com/Supermegamine/CaptionTheMoment',
+    demo: 'https://supermegamine.github.io/CaptionTheMoment/',
   },
   {
     title: 'Holiday Planner', // TODO
