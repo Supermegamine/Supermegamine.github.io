@@ -36,19 +36,18 @@ h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.
 h2 { font-size: 1.5rem; margin: 0 0 1.5rem; letter-spacing: -0.01em; font-weight: 600; }
 h3 { font-size: 1.125rem; margin: 0; font-weight: 600; }
 
-.hero { display: grid; gap: 3rem; padding-block: 4rem 5rem; align-items: center; }
-@media (min-width: 60rem) { .hero { grid-template-columns: 1fr 1fr; } }
+.hero { display: grid; gap: 2.5rem; padding-block: 3rem 4rem; }
 .lead { font-size: 1.25rem; color: var(--muted); }
 
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center; margin-top: 1.5rem; }
 .btn { background: var(--accent); color: #fff; padding: 0.55rem 1.1rem; border-radius: 4px; text-decoration: none; font-weight: 500; }
 .btn:hover { background: #1b37ad; }
 
-.response { margin: 0; background: var(--code-bg); color: var(--code-text); border-radius: 8px; overflow: hidden; font-family: var(--mono); font-size: 0.875rem; }
+.response { margin: 0; max-width: 40rem; background: var(--code-bg); color: var(--code-text); border-radius: 8px; overflow: hidden; font-family: var(--mono); font-size: 0.875rem; }
 .response figcaption { padding: 0.75rem 1.25rem; border-bottom: 1px solid #2b3a4d; display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
 .response .method { color: var(--code-bool); }
 .response .status { margin-left: auto; color: var(--code-bool); }
-.response pre { margin: 0; padding: 1.25rem; overflow-x: auto; line-height: 1.6; }
+.response pre { margin: 0; padding: 1.25rem; overflow-x: auto; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
 .response code { font-family: inherit; }
 .k { color: var(--code-key); }
 .s { color: var(--code-str); }
