@@ -32,21 +32,21 @@ export const projects = [
       'A real-time, multiplayer party game where friends compete to write the funniest caption for a photo.', // TODO
     stack: ['Streamlit (Python)', 'Supabase (PostgreSQL)'],
     repo: 'https://github.com/Supermegamine/CaptionTheMoment',
-    demo: '',
+    demo: 'https://supermegamine.github.io/CaptionTheMoment/',
   },
   {
     title: 'Planify', // TODO
     description: 'A full-stack productivity app that combines intelligent task management, daily habit tracking, and calendar scheduling into one dashboard.',
     stack: ['Next.js', 'SQLite', 'TailwindCSS'],
     repo: 'https://github.com/Supermegamine/Planify',
-    demo: '',
+    demo: 'https://supermegamine.github.io/Planify/',
   },
   {
     title: 'Holiday Planner', // TODO
     description: 'A polished, modern web app for planning family holidays and organizing activities for each day of a trip. The experience is designed to feel simple and approachable while still supporting real shared planning workflows.',
     repo: 'https://github.com/Supermegamine/Holiday-planner',
     stack: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'Supabase (PostgreSQL)'],
-    demo: '',
+    demo: 'https://supermegamine.github.io/Holiday-planner/',
   },
   
 ];
